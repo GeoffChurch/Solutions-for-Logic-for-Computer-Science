@@ -1,0 +1,14 @@
+\documentclass{book}
+
+\usepackage[margin=0.5in]{geometry}
+
+% Solution box command adapted from https://tex.stackexchange.com/a/42454
+\newcommand{\solution}[1][TODO]{\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-\fboxrule\relax}{#1}}\\[1em]}
+
+\begin{document}
+
+\setlength{\parindent}{0pt}
+
+\include{2.1.x}
+
+\end{document}

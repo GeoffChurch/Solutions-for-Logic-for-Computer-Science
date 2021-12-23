@@ -1,0 +1,68 @@
+\subsection*{2.1.1}
+
+Show the following properties:
+\begin{enumerate}
+
+    \renewcommand{\labelenumi}{(\alph{enumi})}
+
+    \item If there exists a function $g : B \to A$ such that $f \circ g = I_A$, then $f : A \to B$ is injective.
+
+          \solution[
+              By contradiction, assume $f$ is not injective. Then it must collapse two distinct elements into one, i.e. $\exists a_1, a_2 \in A$ such that $f(a_1) = f(a_2) = b$ and $a_1 \neq a_2$. But if $f \circ g = I_A$, then $g(f(a_1)) = g(b) = a_1$ {\bf and} $g(f(a_2)) = g(b) = a_2$. Since $a_1$ and $a_2$ are distinct, $g$ must be non-deterministic, so $g$ cannot be a function as claimed.
+          ]
+
+          If $f : A \to B$ is injective and $A \neq \emptyset$, then there exists a function $g : B \to A$ such that $f \circ g = I_A$.
+
+          \solution[
+              Let $f^T = \{<b,a> | <a,b> \in f\}$. Since $f$ is injective, $f^T$ is a partial function (deterministic), and since $f$ is total and $f^T$ is a partial function, $f \circ f^T = I_A$.
+              \\\\
+              Now let $g$ be any total function which extends $f^T$ (this can be done because $f^T$ is a partial function). Since $g$ extends $f^T$, $I_A \subset f \circ g$, and since $g$ is functional/deterministic (in particular on $range(f) = dom(f^T)$) and $I_A$ is total, $f \circ g = I_A$.
+          ]
+
+    \item A function $f$ is surjective if and only if there exists a function $g : B \to A$ such that $g \circ f = I_B$.
+
+          \solution[
+              Forward direction: for each $b \in B$, let $g(b) = a$ for {\bf some} $a \in f^{-1}(b)$. Since $f$ is surjective, $f^{-1}(b)$ is non-empty, so we can always pick some $a$, and so $g$ is a (total) function. And of course $f(g(b)) = b = I_B(b)$ for all $b \in B$.
+              \\\\
+              Backward direction: by contradiction, assume $f$ is not surjective. Then there exists $b \in B$ such that $f^{-1}(b) = \emptyset$. Nothing maps to $b$, so $f(g(b)) \neq b$, so $g \circ f \neq I_B$.
+          ]
+
+    \item A function $f : A \to B$ is bijective if and only if there is a function $f^{-1}$ called its {\it inverse} such that $f \circ f^{-1} = I_A$ and $f^{-1} \circ f = I_B$.
+
+          \solution[
+          Forward direction: given $f$'s injectivity, we know from the problem on injectivity that any functional extension $g$ of $f^T$ satisfies $f \circ g = I_A$, and since $f$ is also surjective the only functional extension is trivially $f^T=f^{-1}$ itself. Furthermore, since $f$ is total and surjective, $f^{-1}$ is as well, and because $(f^T)^T = f$, by symmetry we have $f^{-1} \circ f = I_B$.
+          \\\\
+          Backward direction: we know from the problems on injectivity and surjectivity that both $f$ and $f^{-1}$ are both injective and surjective, and are therefore bijective.
+          ]
+
+\end{enumerate}
+
+\subsection*{2.1.2}
+
+Prove that a function $f : A \to B$ is injective if and only if, for all functions $g,h : C \to A$, $g \circ f = h \circ f$ implies that $g = h$.
+
+\solution[
+    Forward direction: by contradiction, let $f$ be injective and $g \circ f = h \circ f$, but assume $g \neq h$. If $g \neq h$ then there exists $c \in C$ where $g(c) \neq h(c)$. But since $f$ is injective then $f(g(c)) \neq f(h(c))$, so $g \circ f$ cannot equal $h \circ f$.
+    \\\\
+    Backward direction: by contradiction, assume $f$ is not injective, i.e. $\exists a_1, a_2 \in A$ such that $f(a_1) = f(a_2)$ and $a_1 \neq a_2$. Let $g$ and $h$ be indistinguishable except at $c$, where $g(c) = a_1$ and $h(c) = a_2$. Then the difference is washed out by $f$, and we have $g \circ f = h \circ f$ but $g \neq h$.
+]
+
+A function $f : A \to B$ is surjective if and only if, for all functions $g,h : B \to C$, $f \circ g = f \circ h$ implies that $g = h$.
+
+\solution[
+    Forward direction: by contradiction, let $f$ be surjective and $f \circ g = f \circ h$, but assume $g \neq h$. Then $g(b) \neq h(b)$ for some $b \in B$. Since $f$ is surjective, $f^{-1}(\{b\})$ is nonempty. Pick any element $a \in f^{-1}(\{b\})$. But then $(f \circ g)(a) \neq (f \circ h)(a)$, so $f \circ g \neq f \circ h$.
+    \\\\
+    Backward direction: by contradiction, assume $f$ is not surjective, i.e. $f^{-1}(\{b\}) = \emptyset$ for some $b \in B$. Let $g$ and $h$ be indistinguishable except at $b$, where $g(b) \neq h(b)$. But then because nothing maps to $b$ and $g$ and $h$ are otherwise identical, $f \circ g = f \circ h$.
+]
+
+\subsection*{2.1.3}
+
+Given a relation $R$ on a set $A$, prove that $R$ is transitive if and only if $R \circ R$ is a subset of $R$.
+
+\solution
+
+\subsection*{2.1.4}
+
+Given two equivalence relations $R$ and $S$ on a set $A$, prove that if $R \circ S = S \circ R$, then $R \circ S$ is the least equivalence relation containing $R$ and $S$.
+
+\solution

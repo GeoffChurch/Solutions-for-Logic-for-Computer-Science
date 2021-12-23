@@ -1,9 +1,15 @@
 \documentclass{book}
 
 \usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{xcolor}
 
-% Solution box command adapted from https://tex.stackexchange.com/a/42454
+% Solution box - command adapted from https://tex.stackexchange.com/a/42454
 \newcommand{\solution}[1][TODO]{\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-\fboxrule\relax}{#1}}\\[1em]}
+
+% in-equation highlighting - from https://tex.stackexchange.com/a/118413
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
 
 \begin{document}
 

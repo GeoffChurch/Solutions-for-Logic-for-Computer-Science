@@ -59,7 +59,15 @@ A function $f : A \to B$ is surjective if and only if, for all functions $g,h : 
 
 Given a relation $R$ on a set $A$, prove that $R$ is transitive if and only if $R \circ R$ is a subset of $R$.
 
-\solution
+\solution[
+    Symbolically, we have (with implicit universal quantification)
+    \begin{align}
+            R \text{ is transitive iff } & \highlight{xRy \land yRz} \implies xRz \tag{definition of transitivity} \\
+            & \highlight{xRy \land yRz} \Leftrightarrow x(R \circ R)z \tag{definition of composition}
+    \end{align}
+
+    We can plug the definition of composition into the definition of transitivity (modus ponens) to eliminate $\highlight{xRy \land yRz}$ and derive $$\text{$R$ is transitive iff } x(R \circ R)z \implies xRz$$
+]
 
 \subsection*{2.1.4}
 

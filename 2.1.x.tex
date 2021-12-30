@@ -60,17 +60,23 @@ A function $f : A \to B$ is surjective if and only if, for all functions $g,h : 
 Given a relation $R$ on a set $A$, prove that $R$ is transitive if and only if $R \circ R$ is a subset of $R$.
 
 \solution[
-    Symbolically, we have (with implicit universal quantification)
-    \begin{align}
-            R \text{ is transitive iff } & \highlight{xRy \land yRz} \implies xRz \tag{definition of transitivity} \\
-            & \highlight{xRy \land yRz} \Leftrightarrow x(R \circ R)z \tag{definition of composition}
-    \end{align}
-
-    We can plug the definition of composition into the definition of transitivity (modus ponens) to eliminate $\highlight{xRy \land yRz}$ and derive $$\text{$R$ is transitive iff } x(R \circ R)z \implies xRz$$
+    By the definition of transitivity, $R$ is transitive if and only if $\forall x,y,z (xRy \land yRz \implies xRz)$. By the definition of composition, $\forall x,y,z (xRy \land yRz \iff x(R \circ R)z)$. Therefore, $R$ is transitive if and only if $\forall x,y (x(R \circ R)y \implies xRy)$, i.e. if and only if $R \circ R$ is a subset of $R$.
 ]
 
 \subsection*{2.1.4}
 
 Given two equivalence relations $R$ and $S$ on a set $A$, prove that if $R \circ S = S \circ R$, then $R \circ S$ is the least equivalence relation containing $R$ and $S$.
 
-\solution
+\solution[
+    First, let's check that $R \circ S$ is an equivalence relation.
+    \begin{itemize}
+        \item Reflexivity: because $R$ and $S$ are reflexive, for all $x \in A$ we have $xRx \land xSx$, which implies $x(R \circ S)x$.
+        \item Symmetry: consider some $x, y \in A$ such that $x(R \circ S)y$. Since $R$ and $S$ commute we also know $x(S \circ R)y$ (i.e. $xSa \land aRy$ for some $a \in A$). Finally, since $R$ and $S$ are symmetric, we know $yRa \land aSx$, and hence $y(R \circ S)x$.
+        \item
+              Transitivity: adopting a point-free notation, showing transitivity amounts to showing $RSRS \subset RS$. Since $RS = SR$, $RSRS = RRSS$. Since $R$ and $S$ are transitive, $RR \subset R$ and $SS \subset S$, and since $A \subset B \implies (xAy \implies xBy)$ (monotonicity), we can conclude $RSRS \subset RS$.
+              \\\\
+              Alternatively, with explicit arguments, consider some $x,y,z \in A$ such that $x(R \circ S)y(R \circ S)z$, i.e. $xRaSyRbSz$ for some $a,b \in A$. Since $R \circ S = S \circ R$, $xRaSyRbSz \iff xRaRwSbSz$ for some $w \in A$. Since $R$ and $S$ are transitive, $xRaRwSbSz \implies xRwSz \implies x(R \circ S)z$.
+    \end{itemize}
+
+    Now let's finish by checking that $R \circ S$ is a subset of the least equivalence relation containing $R$ and $S$. By definition of composition, $<x,z> \in (R \circ S) \iff <x,y> \in R \land <y,z> \in S$ for some $y$. The least equivalence relation containing $R$ and $S$ certainly contains $R$ and $S$, so it must contain both $<x,y>$ and $<y,z>$, and since any equivalence relation is transitive it must also contain $<x,z>$. Therefore, it contains $R \circ S$.
+]

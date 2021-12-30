@@ -73,7 +73,7 @@ Given two equivalence relations $R$ and $S$ on a set $A$, prove that if $R \circ
         \item Reflexivity: because $R$ and $S$ are reflexive, for all $x \in A$ we have $xRx \land xSx$, which implies $x(R \circ S)x$.
         \item Symmetry: consider some $x, y \in A$ such that $x(R \circ S)y$. Since $R$ and $S$ commute we also know $x(S \circ R)y$ (i.e. $xSa \land aRy$ for some $a \in A$). Finally, since $R$ and $S$ are symmetric, we know $yRa \land aSx$, and hence $y(R \circ S)x$.
         \item
-              Transitivity: adopting a point-free notation, showing transitivity amounts to showing $RSRS \subset RS$. Since $RS = SR$, $RSRS = RRSS$. Since $R$ and $S$ are transitive, $RR \subset R$ and $SS \subset S$, and since $A \subset B \implies (xAy \implies xBy)$ (monotonicity), we can conclude $RSRS \subset RS$.
+              Transitivity: adopting a point-free notation, showing transitivity amounts to showing $RSRS \subset RS$. Since $RS = SR$, $RSRS = RRSS$. Since $R$ and $S$ are transitive, $RR \subset R$ and $SS \subset S$, and since $A \subset B \implies (xRASy \implies xRBSy)$ (monotonicity), we can conclude $RSRS \subset RS$.
               \\\\
               Alternatively, with explicit arguments, consider some $x,y,z \in A$ such that $x(R \circ S)y(R \circ S)z$, i.e. $xRaSyRbSz$ for some $a,b \in A$. Since $R \circ S = S \circ R$, $xRaSyRbSz \iff xRaRwSbSz$ for some $w \in A$. Since $R$ and $S$ are transitive, $xRaRwSbSz \implies xRwSz \implies x(R \circ S)z$.
     \end{itemize}

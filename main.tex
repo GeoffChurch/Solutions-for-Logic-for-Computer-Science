@@ -1,7 +1,8 @@
-\documentclass{book}
+\documentclass{article}
 
 \usepackage[margin=0.5in]{geometry}
 \usepackage{amsmath}
+\usepackage{hyperref}
 \usepackage{xcolor}
 
 % Solution box - command adapted from https://tex.stackexchange.com/a/42454
@@ -12,6 +13,10 @@
   \colorbox{red!50}{$\displaystyle#1$}}
 
 \begin{document}
+
+\thispagestyle{empty}
+
+\setcounter{secnumdepth}{0}
 
 \setlength{\parindent}{0pt}
 
